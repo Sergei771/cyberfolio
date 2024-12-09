@@ -4,6 +4,7 @@ const navLinks = document.querySelector('.nav__links');
 const nav = document.querySelector('.nav');
 const slideElements = document.querySelectorAll('.slide-in');
 let lastScroll = 0;
+const loader = document.querySelector('.loader');
 
 // Fonction pour gérer le menu mobile
 function toggleMenu() {
@@ -19,7 +20,18 @@ navToggle.addEventListener('click', toggleMenu);
 // Fermer le menu quand on clique sur un lien
 navLinks.addEventListener('click', (e) => {
     if (e.target.classList.contains('nav__link')) {
-        toggleMenu();
+        if (window.innerWidth <= 768) {  // Vérifier si on est en mode mobile
+            toggleMenu();
+        }
+        const href = e.target.getAttribute('href');
+        const targetElement = document.querySelector(href);
+        if (targetElement) {
+            e.preventDefault();
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
     }
 });
 
@@ -66,20 +78,6 @@ slideElements.forEach(element => {
     observer.observe(element);
 });
 
-// Smooth scroll pour les liens d'ancrage
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
 // Gestionnaires d'événements
 window.addEventListener('scroll', handleNavScroll);
 window.addEventListener('resize', () => {
@@ -100,4 +98,9 @@ function staggerAnimation() {
 // Initialisation
 document.addEventListener('DOMContentLoaded', () => {
     staggerAnimation();
+    
+    // Cacher le loader après le chargement
+    setTimeout(() => {
+        loader.classList.add('hidden');
+    }, 500);
 }); 
