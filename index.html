@@ -57,12 +57,24 @@
                     <p class="header__greeting" aria-label="Salutation">Bonjour, je suis</p>
                     <h1 class="header__title">
                         <span class="header__name highlight">Drivshnofer Marilov</span>
-                        <span class="header__role">Étudiant en Cybersécurité</span>
+                        <span class="header__role">
+                            <span class="header__static">Spécialisé en</span>
+                            <span class="header__dynamic" aria-label="Compétences changeantes">
+                                <span class="header__dynamic-text"></span>
+                                <span class="header__cursor">|</span>
+                            </span>
+                        </span>
                     </h1>
-                    <p class="header__subtitle">J'aime bien développer des script d'automatisation ainsi que des bots, pour simplifier la sécurité des clients, pour le domaine de la cybersécurité.</p>
+                    <p class="header__subtitle">Passionné par le développement de solutions de sécurité innovantes, je crée des outils d'automatisation et des bots pour renforcer la cybersécurité.</p>
                     <div class="header__cta">
-                        <a href="#projects" class="btn btn-primary">Voir mes projets</a>
-                        <a href="#contact" class="btn btn-secondary">Me contacter</a>
+                        <a href="#projects" class="btn btn-primary">
+                            <span class="btn-text">Voir mes projets</span>
+                            <span class="btn-icon">→</span>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <span class="btn-text">Me contacter</span>
+                            <span class="btn-icon">✉</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -71,7 +83,10 @@
         <!-- Section À propos avec effet de parallaxe subtil -->
         <section id="about" class="about" aria-labelledby="about-title">
             <div class="container">
-                <h2 id="about-title" class="section-title slide-in">À propos de moi</h2>
+                <h2 id="about-title" class="section-title slide-in">
+                    À propos de moi
+                    <span class="section-title__decoration"></span>
+                </h2>
                 <div class="about__content">
                     <div class="about__text-container slide-in">
                         <div class="about__text">
@@ -82,15 +97,15 @@
                                 <ul class="about__list">
                                     <li class="about__list-item">
                                         <span class="about__list-icon">▹</span>
-                                        Developpement d'application utile a la cybersécurité
+                                        <span class="about__list-text">Développement d'applications de cybersécurité</span>
                                     </li>
                                     <li class="about__list-item">
                                         <span class="about__list-icon">▹</span>
-                                        Developpement de script d'automatisation
+                                        <span class="about__list-text">Développement de scripts d'automatisation</span>
                                     </li>
                                     <li class="about__list-item">
                                         <span class="about__list-icon">▹</span>
-                                        Developpement de bots
+                                        <span class="about__list-text">Développement de bots</span>
                                     </li>
                                 </ul>
                             </div>
@@ -99,7 +114,7 @@
                                 <svg class="about__cv-icon" viewBox="0 0 24 24">
                                     <path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/>
                                 </svg>
-                                Télécharger mon CV
+                                <span class="about__cv-text">Télécharger mon CV</span>
                             </a>
                         </div>
                     </div>
@@ -111,11 +126,10 @@
                                     src="/assets/image.png" 
                                     alt="Photo de profil - Étudiant en Cybersécurité" 
                                     class="profile-image__img"
-                                    onError="this.onerror=null; this.src='/assets/image.png';"
+                                    loading="lazy"
                                 />
-                                <div class="profile-image__overlay">
-                                    <div class="profile-image__frame"></div>
-                                </div>
+                                <div class="profile-image__overlay"></div>
+                                <div class="profile-image__frame"></div>
                             </div>
                         </div>
                     </div>
@@ -124,108 +138,221 @@
         </section>
 
         <!-- Section Compétences avec effet de carte -->
-        <section id="skills" class="skills">
+        <section id="skills" class="skills" aria-labelledby="skills-title">
             <div class="container">
-                <h2 class="section-title slide-in">Mes Compétences</h2>
+                <h2 id="skills-title" class="section-title slide-in">
+                    Mes Compétences
+                    <span class="section-title__decoration"></span>
+                </h2>
+
+                <div class="skills__filters slide-in">
+                    <button class="skills__filter active" data-filter="all">Tous</button>
+                    <button class="skills__filter" data-filter="security">Cybersécurité</button>
+                    <button class="skills__filter" data-filter="dev">Développement</button>
+                    <button class="skills__filter" data-filter="tools">Outils</button>
+                </div>
+
                 <div class="skills__grid">
-                    <div class="skill-category slide-in">
-                        <h3 class="skill-category__title">Cybersécurité</h3>
-                        <ul class="skill-list">
-                            <li>Analyse de vulnérabilités</li>
-                            <li>Tests d'intrusion</li>
-                            <li>Sécurité des réseaux</li>
-                            <li>Cryptographie</li>
-                        </ul>
+                    <div class="skill-card slide-in" data-category="security">
+                        <div class="skill-card__header">
+                            <div class="skill-card__icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+                                </svg>
+                            </div>
+                            <h3 class="skill-card__title">Cybersécurité</h3>
+                        </div>
+                        
+                        <div class="skill-card__content">
+                            <div class="skill-item">
+                                <div class="skill-item__header">
+                                    <span class="skill-item__name">Analyse de vulnérabilités</span>
+                                    <span class="skill-item__level">85%</span>
+                                </div>
+                                <div class="skill-item__bar">
+                                    <div class="skill-item__progress" data-level="85"></div>
+                                </div>
+                            </div>
+
+                            <div class="skill-item">
+                                <div class="skill-item__header">
+                                    <span class="skill-item__name">Tests d'intrusion</span>
+                                    <span class="skill-item__level">75%</span>
+                                </div>
+                                <div class="skill-item__bar">
+                                    <div class="skill-item__progress" data-level="75"></div>
+                                </div>
+                            </div>
+
+                            <div class="skill-item">
+                                <div class="skill-item__header">
+                                    <span class="skill-item__name">Sécurité des réseaux</span>
+                                    <span class="skill-item__level">80%</span>
+                                </div>
+                                <div class="skill-item__bar">
+                                    <div class="skill-item__progress" data-level="80"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="skill-category slide-in">
-                        <h3 class="skill-category__title">Développement</h3>
-                        <ul class="skill-list">
-                            <li>HTML/CSS</li>
-                            <li>JavaScript</li>
-                            <li>Python/Scripting</li>
-                            <li>SQL</li>
-                        </ul>
+
+                    <div class="skill-card slide-in" data-category="dev">
+                        <div class="skill-card__header">
+                            <div class="skill-card__icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M13.325 3.05L8.667 20.432l1.932.518L15.258 3.57 13.325 3.05zm-7.192 6.624L1.325 14.48l4.808 4.807 1.365-1.365-3.443-3.442 3.443-3.443-1.365-1.364zm11.734 0l-1.365 1.364 3.443 3.442-3.443 3.442 1.365 1.365 4.808-4.807-4.808-4.806z"/>
+                                </svg>
+                            </div>
+                            <h3 class="skill-card__title">Développement</h3>
+                        </div>
+                        
+                        <div class="skill-card__content">
+                            <div class="skill-item">
+                                <div class="skill-item__header">
+                                    <span class="skill-item__name">HTML/CSS</span>
+                                    <span class="skill-item__level">90%</span>
+                                </div>
+                                <div class="skill-item__bar">
+                                    <div class="skill-item__progress" data-level="90"></div>
+                                </div>
+                            </div>
+
+                            <div class="skill-item">
+                                <div class="skill-item__header">
+                                    <span class="skill-item__name">JavaScript</span>
+                                    <span class="skill-item__level">85%</span>
+                                </div>
+                                <div class="skill-item__bar">
+                                    <div class="skill-item__progress" data-level="85"></div>
+                                </div>
+                            </div>
+
+                            <div class="skill-item">
+                                <div class="skill-item__header">
+                                    <span class="skill-item__name">Python</span>
+                                    <span class="skill-item__level">80%</span>
+                                </div>
+                                <div class="skill-item__bar">
+                                    <div class="skill-item__progress" data-level="80"></div>
+                                </div>
+                            </div>
+
+                            <div class="skill-item">
+                                <div class="skill-item__header">
+                                    <span class="skill-item__name">SQL</span>
+                                    <span class="skill-item__level">75%</span>
+                                </div>
+                                <div class="skill-item__bar">
+                                    <div class="skill-item__progress" data-level="75"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="skill-category slide-in">
-                        <h3 class="skill-category__title">Outils & Technologies</h3>
-                        <ul class="skill-list">
-                            <li>Git</li>
-                            <li>Linux</li>
-                            <li>Wireshark</li>
-                            <li>Metasploit</li>
-                            <li>LLM Utilisation</li>
-                        </ul>
+
+                    <div class="skill-card slide-in" data-category="tools">
+                        <div class="skill-card__header">
+                            <div class="skill-card__icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.02-.03.03a6.98 6.98 0 01-4.93 2.04c-3.86 0-7-3.14-7-7z"/>
+                                </svg>
+                            </div>
+                            <h3 class="skill-card__title">Outils & Technologies</h3>
+                        </div>
+                        
+                        <div class="skill-card__content">
+                            <div class="skill-item">
+                                <div class="skill-item__header">
+                                    <span class="skill-item__name">Git/GitHub</span>
+                                    <span class="skill-item__level">85%</span>
+                                </div>
+                                <div class="skill-item__bar">
+                                    <div class="skill-item__progress" data-level="85"></div>
+                                </div>
+                            </div>
+
+                            <div class="skill-item">
+                                <div class="skill-item__header">
+                                    <span class="skill-item__name">Linux</span>
+                                    <span class="skill-item__level">80%</span>
+                                </div>
+                                <div class="skill-item__bar">
+                                    <div class="skill-item__progress" data-level="80"></div>
+                                </div>
+                            </div>
+
+                            <div class="skill-item">
+                                <div class="skill-item__header">
+                                    <span class="skill-item__name">Wireshark</span>
+                                    <span class="skill-item__level">75%</span>
+                                </div>
+                                <div class="skill-item__bar">
+                                    <div class="skill-item__progress" data-level="75"></div>
+                                </div>
+                            </div>
+
+                            <div class="skill-item">
+                                <div class="skill-item__header">
+                                    <span class="skill-item__name">Metasploit</span>
+                                    <span class="skill-item__level">70%</span>
+                                </div>
+                                <div class="skill-item__bar">
+                                    <div class="skill-item__progress" data-level="70"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Section Projets avec effet de carte -->
-        <section id="projects" class="projects" aria-label="Mes projets">
+        <section id="projects" class="projects" aria-labelledby="projects-title">
             <div class="container">
-                <h2 class="section-title slide-in">Projets Sélectionnés</h2>
+                <h2 id="projects-title" class="section-title slide-in">
+                    Projets Sélectionnés
+                    <span class="section-title__decoration"></span>
+                </h2>
                 
                 <div class="carousel" aria-live="polite">
                     <div class="carousel__track">
                         <article class="carousel__slide" aria-hidden="false" data-category="pentest">
-                            <div class="project-card__content">
-                                <h3 class="project-card__title">Analyse de Sécurité</h3>
-                                <p class="project-card__description">Développement d'un outil d'analyse automatisée des vulnérabilités pour applications web. Implémentation de tests de pénétration et génération de rapports détaillés.</p>
-                                <div class="project-card__tech">
-                                    <span class="tech-tag">Python</span>
-                                    <span class="tech-tag">Sécurité</span>
-                                    <span class="tech-tag">Pentest</span>
+                            <div class="project-card">
+                                <div class="project-card__content">
+                                    <h3 class="project-card__title">Analyse de Sécurité</h3>
+                                    <p class="project-card__description">Développement d'un outil d'analyse automatisée des vulnérabilités pour applications web. Implémentation de tests de pénétration et génération de rapports détaillés.</p>
+                                    <div class="project-card__tech">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">Sécurité</span>
+                                        <span class="tech-tag">Pentest</span>
+                                    </div>
                                 </div>
                             </div>
                         </article>
 
-                        <article class="carousel__slide" aria-hidden="true" data-category="developpement">
-                            <div class="project-card__content">
-                                <h3 class="project-card__title">Développement Web Sécurisé</h3>
-                                <p class="project-card__description">Création d'une application web avec focus sur la sécurité : authentification forte, protection XSS/CSRF, chiffrement des données sensibles et audit de sécurité complet.</p>
-                                <div class="project-card__tech">
-                                    <span class="tech-tag">HTML/CSS</span>
-                                    <span class="tech-tag">JavaScript</span>
-                                    <span class="tech-tag">Node.js</span>
-                                    <span class="tech-tag">SQL</span>
+                        <article class="carousel__slide" aria-hidden="true" data-category="automation">
+                            <div class="project-card">
+                                <div class="project-card__content">
+                                    <h3 class="project-card__title">Bot Discord Sécurité</h3>
+                                    <p class="project-card__description">Développement d'un bot Discord pour la gestion automatisée de la sécurité des serveurs : détection de spam, vérification des permissions, logs d'activités suspectes.</p>
+                                    <div class="project-card__tech">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">Discord.py</span>
+                                        <span class="tech-tag">MongoDB</span>
+                                    </div>
                                 </div>
                             </div>
                         </article>
 
-                        <article class="carousel__slide" aria-hidden="true" data-category="automatisation">
-                            <div class="project-card__content">
-                                <h3 class="project-card__title">Bot Discord Sécurité</h3>
-                                <p class="project-card__description">Développement d'un bot Discord pour la gestion automatisée de la sécurité des serveurs : détection de spam, vérification des permissions, logs d'activités suspectes.</p>
-                                <div class="project-card__tech">
-                                    <span class="tech-tag">Python</span>
-                                    <span class="tech-tag">Discord.py</span>
-                                    <span class="tech-tag">MongoDB</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="carousel__slide" aria-hidden="true" data-category="automatisation">
-                            <div class="project-card__content">
-                                <h3 class="project-card__title">Script d'Automatisation Réseau</h3>
-                                <p class="project-card__description">Création d'un ensemble de scripts pour l'automatisation de tâches réseau : surveillance du trafic, détection d'intrusion, sauvegarde automatique des configurations.</p>
-                                <div class="project-card__tech">
-                                    <span class="tech-tag">Python</span>
-                                    <span class="tech-tag">Bash</span>
-                                    <span class="tech-tag">Wireshark</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="carousel__slide" aria-hidden="true" data-category="audit">
-                            <div class="project-card__content">
-                                <h3 class="project-card__title">Audit de Sécurité IoT</h3>
-                                <p class="project-card__description">Réalisation d'un audit complet de sécurité sur un système IoT : analyse du firmware, test des communications, identification des vulnérabilités et recommandations.</p>
-                                <div class="project-card__tech">
-                                    <span class="tech-tag">IoT</span>
-                                    <span class="tech-tag">Python</span>
-                                    <span class="tech-tag">Firmware</span>
+                        <article class="carousel__slide" aria-hidden="true" data-category="development">
+                            <div class="project-card">
+                                <div class="project-card__content">
+                                    <h3 class="project-card__title">Script d'Automatisation Réseau</h3>
+                                    <p class="project-card__description">Création d'un ensemble de scripts pour l'automatisation de tâches réseau : surveillance du trafic, détection d'intrusion, sauvegarde automatique des configurations.</p>
+                                    <div class="project-card__tech">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">Bash</span>
+                                        <span class="tech-tag">Wireshark</span>
+                                    </div>
                                 </div>
                             </div>
                         </article>
@@ -233,15 +360,15 @@
 
                     <div class="carousel__nav">
                         <button class="carousel__button carousel__button--prev" aria-label="Projet précédent">
-                            <svg viewBox="0 0 24 24" width="24" height="24">
+                            <svg viewBox="0 0 24 24">
                                 <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
                             </svg>
                         </button>
-                        <div class="carousel__dots" role="tablist">
+                        <div class="carousel__dots" role="tablist" aria-label="Navigation des projets">
                             <!-- Les points seront générés par JS -->
                         </div>
                         <button class="carousel__button carousel__button--next" aria-label="Projet suivant">
-                            <svg viewBox="0 0 24 24" width="24" height="24">
+                            <svg viewBox="0 0 24 24">
                                 <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
                             </svg>
                         </button>
@@ -278,7 +405,7 @@
                         </a>
                     </div>
                 </div>
-                <p class="footer__copyright">© 2024 - Developpé par un LLM</p>
+                <p class="footer__copyright">© 2024 - Developp�� par un LLM</p>
             </div>
         </footer>
     </main>
