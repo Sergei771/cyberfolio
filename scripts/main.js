@@ -34,10 +34,10 @@ const CONFIG = {
     },
     typewriter: {
         words: [
-            'Cybersécurité',
-            'Automatisation',
-            'Développement',
-            'Scripting'
+            'Front-end',
+            'Back-end',
+            'Full-stack',
+            'Cybersécurité'
         ],
         wait: 2000
     }
