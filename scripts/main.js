@@ -192,10 +192,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         const dynamicText = document.querySelector('.header__dynamic-text');
         if (dynamicText) {
             new TypeWriter(dynamicText, [
-                'Cybersécurité',
-                'Automatisation',
-                'Développement',
-                'Scripting'
+                'Front-end',
+                'Back-end',
+                'Full-stack',
+                'Cybersécurité'
             ], 2000);
         }
 
