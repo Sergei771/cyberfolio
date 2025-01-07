@@ -1,9 +1,6 @@
-from flask import Flask, render_template, request
+import sys
 import re
 
-app = Flask(__name__)
-
-# Fonction pour détecter le type de hachage
 def detect_hash_type(hash_string):
     hash_types = {
         "MD5": r"^[a-fA-F0-9]{32}$",
@@ -18,13 +15,11 @@ def detect_hash_type(hash_string):
             return hash_type
     return "Inconnu"
 
-@app.route("/", methods=["GET", "POST"])
-def home():
-    result = None
-    if request.method == "POST":
-        hash_string = request.form["hash_string"]
-        result = detect_hash_type(hash_string)
-    return render_template("index.html", result=result)
-
 if __name__ == "__main__":
-    app.run(debug=True)
+    if len(sys.argv) < 2:
+        print("Erreur : Aucun hash fourni.")
+        sys.exit(1)
+
+    hash_string = sys.argv[1]
+    result = detect_hash_type(hash_string)
+    print(result)
