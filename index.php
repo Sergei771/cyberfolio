@@ -426,7 +426,7 @@ try {
             <p>Entrez un hash pour détecter son type.</p>
 
             <!-- Formulaire de saisie du hash -->
-            <form method="POST" action="">
+            <form method="POST" action="index.php#hash-detector-title">
                 <label for="hash_string">Entrez un hash :</label><br>
                 <input type="text" id="hash_string" name="hash_string" required><br><br>
                 <button type="submit" class="btn btn-primary">Détecter</button>
