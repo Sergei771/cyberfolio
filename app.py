@@ -1,6 +1,7 @@
-import sys
-import re
 
+import re
+import sys
+# Fonction pour détecter le type de hachage
 def detect_hash_type(hash_string):
     hash_types = {
         "MD5": r"^[a-fA-F0-9]{32}$",
