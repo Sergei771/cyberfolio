@@ -15,4 +15,3 @@ session_destroy();
 // Rediriger vers la page d'accueil
 header('Location: /');
 exit;
-  </rewritten_file> 
